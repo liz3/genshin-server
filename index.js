@@ -11,7 +11,7 @@ hk4e-api-os.mihoyo.com
 const express = require('express');
 const app = express();
 
-const EXECPT_HEADERS = ["host"]
+const EXCEPT_HEADERS = ["host"]
 
 // app.use(function (req, res, next) {
 //     if (req.is('application/json') || req.is("text/*") || req.headers["content-type"].includes("application/json") || req.headers["content-type"].includes("text/")) {
@@ -81,7 +81,7 @@ app.all("/*", async (req, res) => {
 
 
     for (const headerKey in req.headers) {
-        if (EXECPT_HEADERS.includes(headerKey.toLowerCase())) continue;
+        if (EXCEPT_HEADERS.includes(headerKey.toLowerCase())) continue;
         proxiedHeaders[headerKey] = req.headers[headerKey]
     }
 
@@ -107,7 +107,7 @@ app.all("/*", async (req, res) => {
         res.status(requestResponse.statusCode);
         let isPrintable = false;
         for (const respHeaderKey in requestResponse.headers) {
-            if (EXECPT_HEADERS.includes(respHeaderKey.toLowerCase())) continue;
+            if (EXCEPT_HEADERS.includes(respHeaderKey.toLowerCase())) continue;
 
             if (respHeaderKey.toLowerCase() === "content-type") {
                 const value = requestResponse.headers["content-type"];
