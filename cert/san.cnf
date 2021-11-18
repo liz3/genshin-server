@@ -1,0 +1,31 @@
+[req]
+distinguished_name = req_distinguished_name
+x509_extensions = v3_req
+prompt = no
+[req_distinguished_name]
+C = NZ
+ST = NI
+L = Germany
+O = Mihyoho
+OU = Development
+CN = mihyoho.com
+[v3_req]
+keyUsage = critical, digitalSignature, keyAgreement
+extendedKeyUsage = serverAuth
+subjectAltName = @alt_names
+[alt_names]
+DNS.1 = localhost
+DNS.2 = sdk-os-static.mihoyo.com
+DNS.3 = hk4e-sdk-os.mihoyo.com
+DNS.4 = hk4e-api-os.mihoyo.com
+DNS.5 = log-upload-os.mihoyo.com
+DNS.6 = webstatic-sea.mihoyo.com
+DNS.7 = dispatchosglobal.yuanshen.com
+DNS.8 = oseurodispatch.yuanshen.com
+DNS.9 = genshin.mihoyo.com
+DNS.10 = webstatic.mihoyo.com
+DNS.11 = api-static.mihoyo.com
+DNS.12 = api-static.mihoyo.com.w.cdngslb.com
+DNS.13 = genshin.mihoyo.com.w.kunlunsl.com
+DNS.14 = cdp.cloud.unity3d.com
+DNS.15 = config.uca.cloud.unity3d.com
